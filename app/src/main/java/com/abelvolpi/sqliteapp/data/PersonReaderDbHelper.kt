@@ -28,7 +28,8 @@ class PersonReaderDbHelper(context: Context) : SQLiteOpenHelper(context, DATABAS
                     "${BaseColumns._ID} INTEGER PRIMARY KEY," +
                     "${PersonReaderContract.PersonEntry.COLUMN_NAME} TEXT," +
                     "${PersonReaderContract.PersonEntry.COLUMN_EMAIL} TEXT," +
-                    "${PersonReaderContract.PersonEntry.COLUMN_BIRTHDAY} TEXT)"
+                    "${PersonReaderContract.PersonEntry.COLUMN_BIRTHDAY} TEXT," +
+                    "${PersonReaderContract.PersonEntry.COLUMN_IMAGE_URI} TEXT)"
         private const val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS ${PersonReaderContract.PersonEntry.TABLE_NAME}"
     }
 }

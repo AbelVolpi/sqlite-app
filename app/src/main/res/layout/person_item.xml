@@ -18,14 +18,20 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="5dp"
-            android:padding="7dp"
-            android:src="@color/black"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            app:layout_constraintGuide_percent="0.2"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
 
         <TextView
             android:id="@+id/person_name"
@@ -38,7 +44,7 @@
             app:layout_constraintBottom_toTopOf="@+id/person_email"
             app:layout_constraintEnd_toStartOf="@+id/edit_person_button"
             app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -52,7 +58,7 @@
             app:layout_constraintBottom_toTopOf="@id/person_birthday"
             app:layout_constraintEnd_toStartOf="@+id/edit_person_button"
             app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/person_name" />
 
         <TextView
@@ -66,7 +72,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/edit_person_button"
             app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/person_email" />
 
         <ImageView

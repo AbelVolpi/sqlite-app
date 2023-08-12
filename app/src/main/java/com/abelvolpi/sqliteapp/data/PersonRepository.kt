@@ -12,13 +12,15 @@ class PersonRepository(
     fun addPerson(
         name: String,
         email: String,
-        birthday: String
+        birthday: String,
+        imageUri: String
     ) {
         val db = dbHelper.writableDatabase
         val values = ContentValues().apply {
             put(PersonReaderContract.PersonEntry.COLUMN_NAME, name)
             put(PersonReaderContract.PersonEntry.COLUMN_EMAIL, email)
             put(PersonReaderContract.PersonEntry.COLUMN_BIRTHDAY, birthday)
+            put(PersonReaderContract.PersonEntry.COLUMN_IMAGE_URI, imageUri)
         }
         db.insert(PersonReaderContract.PersonEntry.TABLE_NAME, null, values)
     }
@@ -36,13 +38,15 @@ class PersonRepository(
         id: String,
         name: String,
         email: String,
-        birthday: String
+        birthday: String,
+        imageUri: String
     ) {
         val db = dbHelper.writableDatabase
         val values = ContentValues().apply {
             put(PersonReaderContract.PersonEntry.COLUMN_NAME, name)
             put(PersonReaderContract.PersonEntry.COLUMN_EMAIL, email)
             put(PersonReaderContract.PersonEntry.COLUMN_BIRTHDAY, birthday)
+            put(PersonReaderContract.PersonEntry.COLUMN_IMAGE_URI, imageUri)
         }
 
         val selection = "${BaseColumns._ID} LIKE ?"
@@ -62,7 +66,8 @@ class PersonRepository(
             BaseColumns._ID,
             PersonReaderContract.PersonEntry.COLUMN_NAME,
             PersonReaderContract.PersonEntry.COLUMN_EMAIL,
-            PersonReaderContract.PersonEntry.COLUMN_BIRTHDAY
+            PersonReaderContract.PersonEntry.COLUMN_BIRTHDAY,
+            PersonReaderContract.PersonEntry.COLUMN_IMAGE_URI
         )
         val cursor = db.query(
             PersonReaderContract.PersonEntry.TABLE_NAME,
@@ -81,7 +86,8 @@ class PersonRepository(
                     getString(getColumnIndexOrThrow(BaseColumns._ID)),
                     getString(getColumnIndexOrThrow(PersonReaderContract.PersonEntry.COLUMN_NAME)),
                     getString(getColumnIndexOrThrow(PersonReaderContract.PersonEntry.COLUMN_EMAIL)),
-                    getString(getColumnIndexOrThrow(PersonReaderContract.PersonEntry.COLUMN_BIRTHDAY))
+                    getString(getColumnIndexOrThrow(PersonReaderContract.PersonEntry.COLUMN_BIRTHDAY)),
+                    getString(getColumnIndexOrThrow(PersonReaderContract.PersonEntry.COLUMN_IMAGE_URI))
                 )
                 personList.add(person)
             }
@@ -97,7 +103,8 @@ class PersonRepository(
             BaseColumns._ID,
             PersonReaderContract.PersonEntry.COLUMN_NAME,
             PersonReaderContract.PersonEntry.COLUMN_EMAIL,
-            PersonReaderContract.PersonEntry.COLUMN_BIRTHDAY
+            PersonReaderContract.PersonEntry.COLUMN_BIRTHDAY,
+            PersonReaderContract.PersonEntry.COLUMN_IMAGE_URI
         )
         val selection = "${BaseColumns._ID} = ?"
         val selectionArgs = arrayOf(id)
@@ -119,7 +126,8 @@ class PersonRepository(
                     getString(getColumnIndexOrThrow(BaseColumns._ID)),
                     getString(getColumnIndexOrThrow(PersonReaderContract.PersonEntry.COLUMN_NAME)),
                     getString(getColumnIndexOrThrow(PersonReaderContract.PersonEntry.COLUMN_EMAIL)),
-                    getString(getColumnIndexOrThrow(PersonReaderContract.PersonEntry.COLUMN_BIRTHDAY))
+                    getString(getColumnIndexOrThrow(PersonReaderContract.PersonEntry.COLUMN_BIRTHDAY)),
+                    getString(getColumnIndexOrThrow(PersonReaderContract.PersonEntry.COLUMN_IMAGE_URI))
                 )
                 personList.add(person)
             }

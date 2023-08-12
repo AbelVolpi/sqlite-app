@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.fragment.findNavController
 import com.abelvolpi.sqliteapp.data.PersonRepository
 import com.abelvolpi.sqliteapp.databinding.FragmentCreateBinding
+import com.abelvolpi.sqliteapp.ext.setImageUsingGlide
 
 class CreateFragment : Fragment() {
 
@@ -53,12 +54,12 @@ class CreateFragment : Fragment() {
             val name = personNameEditText.text.toString()
             val email = personEmailEditText.text.toString()
             val birthday = personBirthdayEditText.text.toString()
-           // val _imageUri = imageUri
 
             personRepository.addPerson(
                 name,
                 email,
-                birthday
+                birthday,
+                imageUri.toString()
             )
 
             navController.popBackStack()
@@ -79,7 +80,7 @@ class CreateFragment : Fragment() {
                     withoutImageTextView.visibility = View.INVISIBLE
                     addPhotoImageView.visibility = View.INVISIBLE
 
-                    imagePhoto.setImageURI(uri)
+                    imagePhoto.setImageUsingGlide(requireContext(),uri.toString())
                     imageUri = uri
                 }
             }

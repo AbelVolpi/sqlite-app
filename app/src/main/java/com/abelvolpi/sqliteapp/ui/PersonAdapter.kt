@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.abelvolpi.sqliteapp.data.Person
 import com.abelvolpi.sqliteapp.databinding.PersonItemBinding
+import com.abelvolpi.sqliteapp.ext.setImageUsingGlide
 
 class PersonAdapter(
     private val personList: ArrayList<Person>,
@@ -19,8 +20,13 @@ class PersonAdapter(
                 personName.text = person.name
                 personEmail.text = person.email
                 personBirthday.text = person.birthDay
+                imageView.setImageUsingGlide(
+                    binding.root.context,
+                    person.imageUri
+                )
+
                 cardLayout.setOnClickListener {
-                   viewPerson.invoke(person.id)
+                    viewPerson.invoke(person.id)
                 }
                 editPersonButton.setOnClickListener {
                     editPerson.invoke(person.id)

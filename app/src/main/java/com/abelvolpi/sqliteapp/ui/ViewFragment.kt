@@ -1,15 +1,14 @@
 package com.abelvolpi.sqliteapp.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.abelvolpi.sqliteapp.R
+import androidx.fragment.app.Fragment
 import com.abelvolpi.sqliteapp.data.Person
 import com.abelvolpi.sqliteapp.data.PersonRepository
-import com.abelvolpi.sqliteapp.databinding.FragmentCreateBinding
 import com.abelvolpi.sqliteapp.databinding.FragmentViewBinding
+import com.abelvolpi.sqliteapp.ext.setImageUsingGlide
 
 class ViewFragment : Fragment() {
 
@@ -44,6 +43,7 @@ class ViewFragment : Fragment() {
             personNameTextView.text = person.name
             personEmailTextView.text = person.email
             personBirthdayTextView.text = person.birthDay
+            personImageView.setImageUsingGlide(requireContext(), person.imageUri)
         }
     }
 

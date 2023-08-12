@@ -8,5 +8,6 @@ object PersonReaderContract {
         const val COLUMN_NAME = "name"
         const val COLUMN_EMAIL = "email"
         const val COLUMN_BIRTHDAY = "birthday"
+        const val COLUMN_IMAGE_URI = "image_uri"
     }
 }
