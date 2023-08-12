@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ListFragment">
+
+    <fragment
+        android:id="@+id/ListFragment"
+        android:name="com.abelvolpi.sqliteapp.ui.ListFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_create">
+
+        <action
+            android:id="@+id/action_ListFragment_to_CreateFragment"
+            app:destination="@id/CreateFragment" />
+        <action
+            android:id="@+id/action_ListFragment_to_editFragment"
+            app:destination="@id/editFragment" >
+            <argument
+                android:name="id"
+                app:argType="string"/>
+        </action>
+        <action
+            android:id="@+id/action_ListFragment_to_viewFragment"
+            app:destination="@id/viewFragment" >
+            <argument
+                android:name="id"
+                app:argType="string"/>
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/CreateFragment"
+        android:name="com.abelvolpi.sqliteapp.ui.CreateFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_list">
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.abelvolpi.sqliteapp.ui.EditFragment"
+        android:label="fragment_edit"
+        tools:layout="@layout/fragment_edit" />
+    <fragment
+        android:id="@+id/viewFragment"
+        android:name="com.abelvolpi.sqliteapp.ui.ViewFragment"
+        android:label="fragment_view"
+        tools:layout="@layout/fragment_view" />
+</navigation>
